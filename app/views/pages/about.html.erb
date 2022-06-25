@@ -1,1 +1,13 @@
-<h1>Our first view 🚀</h1>
+<div class="container d-flex" style="height: 100vh; padding-top: 10vh; width: 100vw; flex-direction: column;" data-controller="geoloc">
+  <h1 class="text-center p-5">Backend Challenge</h1>
+  <div class="container" style="width: 100vw;">
+    <%= simple_form_for "/", method: "get", remote: true, data: { action: "submit->geoloc#latlong" } do %>
+      <%= label_tag(:lat, 'Latitude') %>
+      <%= text_field_tag(:lat, '', data: {geoloc_target: "lat"}) %>
+      <%= label_tag(:lat, 'Longitude') %>
+      <%= text_field_tag(:lon, '', data: {geoloc_target: "long"}) %>
+      <%= submit_tag('Search') %>
+    <% end %>
+  </div>
+  <%= render 'latlong' %>
+</div>
